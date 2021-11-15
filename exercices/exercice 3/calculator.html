@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        
+        
+        const calculator = function(term1,operator,term2){
+            if(!Number.isInteger(term1) || !Number.isInteger(term2) || typeof operator!== 'string'){
+                console.error("There is an error")
+                return null;
+            }
+            if(operator === "+") {
+                return term1+term2
+            }
+            else if(operator === "-") {
+                return term1-term2
+            }
+            else if(operator === "*") {
+                return term1*term2
+            }
+            else if(operator === "/") {
+                if (term2===0){
+                    return `May you reload with a denominator different from zero`
+                }
+                else{
+                    return term1/term2
+                }
+                
+            }
+            
+        }
+
+        let firstTerm=window.prompt("")
+        let operator=window.prompt("")
+        let secondTerm=window.prompt("")
+        let term1 = parseInt(firstTerm)
+        let term2 = parseInt(secondTerm)
+        
+    
+        console.log(calculator(term1,operator,term2))
+
+        
+
+    </script>
+</body>
+</html>

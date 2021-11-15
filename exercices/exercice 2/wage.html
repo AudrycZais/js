@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+        const wageGenerator = function (min, max) {
+            if (!Number.isInteger(min) || !Number.isInteger(max)) {
+                console.error('There is a problem');
+                return null;
+            }
+            return Math.ceil(Math.random() * (max - min) + min);
+        }
+        const wageDatas = {
+
+            wage: wageGenerator(2000, 3000),
+            options:{
+                minWage: 2500,
+                insurance: 1.07,
+                tax: 1.4,
+                netSalary: -1,
+                allowance: false
+            }
+            
+        }
+
+        let allowanceVerified = null;
+        let allowance=null;
+    
+        const computeWage = function (wage, options) {
+            netSalary = wage / options.insurance;
+            netSalary = wage / options.tax;
+            netSalary = netSalary.toFixed(2);
+
+            return `Salaire Brut ${wage} - Salaire net ${netSalary} et ${allowanceVerified}`
+        }
+        if (wageDatas.wage < 2500) {
+            allowance = true
+            allowanceVerified = "la personne a bénéficié des allocations"
+        }
+        else{
+            allowanceVerified = "la personne n'a pas bénéficié des allocations"
+        }
+
+
+        console.log(computeWage(wageDatas.wage, wageDatas.options));
+
+
+
+
+
+    </script>
+</body>
+
+</html>
